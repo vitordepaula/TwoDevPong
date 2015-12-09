@@ -1,0 +1,9 @@
+{
+  "name": "socket-pong",
+  "version": "0.0.1",
+  "description": "socket.io app for 2-device pong game",
+  "dependencies": {
+    "express": "^4.10.2",
+    "socket.io": "^1.3.5"
+  }
+}
