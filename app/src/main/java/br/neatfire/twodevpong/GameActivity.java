@@ -1,5 +1,6 @@
 package br.neatfire.twodevpong;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
@@ -59,6 +60,9 @@ public class GameActivity extends AppCompatActivity implements RunningGameCallba
     TextView score;
     boolean my_turn;
 
+    String you;
+    String opponent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +78,10 @@ public class GameActivity extends AppCompatActivity implements RunningGameCallba
 
         my_turn = false;
         game_handler = new Handler(); // game logic handler goes on UI thread (seems ok for me)
+        Intent i = getIntent();
+        you = i.getStringExtra("you").split(" ", 2)[0]; // only first name
+        opponent = i.getStringExtra("opponent").split(" ", 2)[0];
+        setTitle(you + " vs " + opponent);
     }
 
     GameController mGameController;
@@ -190,7 +198,7 @@ public class GameActivity extends AppCompatActivity implements RunningGameCallba
 
             // SCORE
             if (update_score) {
-                score.setText(String.format("you [%d] x [%d] other", score_mine, score_opponent));
+                setTitle(String.format("%s [%d] x [%d] %s", you, score_mine, score_opponent, opponent));
                 update_score = false;
             }
         }

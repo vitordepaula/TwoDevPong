@@ -3,11 +3,13 @@
     <string name="action_settings">Settings</string>
     <string name="search_game">Search Game</string>
     <string name="serve_game">Serve Game</string>
-    <string name="hello">Hello!\n To start, click on a game below or this button to serve a new game</string>
+    <string name="hello">Welcome!\n To start, click on a game below or this button to serve a new game.\nLong press on your name to change it.</string>
     <string name="connection_error">Error connecting to server! Bailing out.</string>
 
     <string name="title_activity_game">GameActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="waiting_connection">Waiting for connection.</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="random">Random</string>
 </resources>

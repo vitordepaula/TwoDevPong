@@ -2,5 +2,5 @@ package br.neatfire.twodevpong.interfaces;
 
 public interface ConnectionCallbacks {
     void onConnectionError();
-    void onGameStart(String user_id);
+    void onGameStart(String opponent_name);
 }

@@ -105,17 +105,19 @@ io.on('connection', function (socket) {
   });
   
   // when the client emits a 'join game'
-  socket.on('join game', function (other_user_id) {
-    console.log('joing game from ' + socket.user_id + ' to ' + other_user_id);
-	  if (open_games.hasOwnProperty(other_user_id)) {
+  socket.on('join game', function (other_user_id, my_name) {
+    if (open_games.hasOwnProperty(other_user_id)) {
       var other_user_socket = sockets[other_user_id];
-		  // close the game for other users
-		  close_game(other_user_id);
-		  // add a new running game pair and emit 'start game' for both users
-		  running_games[socket.user_id] = other_user_id;
-		  running_games[other_user_id] = socket.user_id;
-		  other_user_socket.emit('game started', { user_id: socket.user_id });
-		  socket.emit('game started', { user_id: other_user_id });
+      var other_user_name = open_games[other_user_id];
+      console.log('joing game from ' + socket.user_id + ' (' +
+         my_name + ') to ' + other_user_id + ' (' + other_user_name + ')');
+      // close the game for other users
+      close_game(other_user_id);
+      // add a new running game pair and emit 'start game' for both users
+      running_games[socket.user_id] = other_user_id;
+      running_games[other_user_id] = socket.user_id;
+      other_user_socket.emit('game started', { user_name: my_name });
+      socket.emit('game started', { user_name: other_user_name });
       // now wait for both to send 'ready'
     }
   });

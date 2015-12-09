@@ -59,7 +59,7 @@ public class GameController {
             mGameAdapter = new GameAdapter(mContext);
 
             myId = UUID.randomUUID();
-            myName = myId.toString(); // TODO: obtain the user name correctly
+            myName = myId.toString(); // until initialized by setName, will hold the ID
 
             Log.d(TAG, "socket initialized");
             mSocket.connect();
@@ -156,10 +156,10 @@ public class GameController {
         @Override
         public void call(final Object... args) {
             JSONObject data = (JSONObject) args[0];
-            String user_id;
+            String opponent_name;
             try {
-                user_id = data.getString("user_id"); // ID of the other gamer
-                mCallbacks.onGameStart(user_id);
+                opponent_name = data.getString("user_name"); // Name of the other gamer
+                mCallbacks.onGameStart(opponent_name);
 
                 mSocket.on("ball update", onShadowUpdate);
                 mSocket.on("give control", onGetControl);
@@ -235,10 +235,10 @@ public class GameController {
         mSocket.emit("close game");
     }
 
-    public void joinGame(int list_position) {
+    public void joinGame(int list_position, String my_name) {
         String other_user_id = mGameAdapter.getGameId(list_position);
         mGameAdapter.removeGame(other_user_id);
-        mSocket.emit("join game", other_user_id);
+        mSocket.emit("join game", other_user_id, my_name);
     }
 
     public void registerRunningGameCallbacks(RunningGameCallbacks rgcb) {
@@ -282,5 +282,9 @@ public class GameController {
     public void ballOut() {
         if (mSocket != null)
             mSocket.emit("ball out");
+    }
+
+    public void setName(String name) {
+        this.myName = name;
     }
 }

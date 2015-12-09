@@ -9,6 +9,13 @@
     android:layout_marginTop="50sp"
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
+    <TextView android:text="ABCDEFGHIJ," android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="24sp"
+        android:id="@+id/tvName" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,13 +24,13 @@
         android:id="@+id/btn_serve"
         android:background="@android:drawable/dialog_holo_light_frame"
         android:elevation="7dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/tvName"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
 
     <TextView android:text="@string/hello" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/tvName"
         android:layout_toLeftOf="@+id/btn_serve"
         android:layout_toStartOf="@+id/btn_serve"
         android:id="@+id/textView" />
