@@ -12,9 +12,7 @@
         android:background="#000064"
         android:visibility="invisible"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="70sp"
         android:layout_marginStart="70sp"
         android:layout_marginTop="5sp" />
 
@@ -23,11 +21,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/game_ball"
         android:src="@drawable/arkanoid_ball"
+        android:elevation="5sp"
         android:visibility="invisible"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="70sp"
         android:layout_marginStart="70sp"
         android:layout_marginTop="100sp" />
 
@@ -36,10 +33,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/game_bar"
         android:src="@drawable/arkanoid_bar"
+        android:elevation="5sp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginLeft="70dp"
         android:layout_marginStart="70dp"
         android:layout_marginBottom="20dp" />
 

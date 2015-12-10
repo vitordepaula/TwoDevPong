@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements ConnectionCallbac
     private AlertDialog mWaitingConnectionDialog = null;
 
     private static final String PREFS_NAME = "MyPrefsFile";
-    private String my_name;
+    protected String my_name;
     private TextView tvName;
 
     @Override

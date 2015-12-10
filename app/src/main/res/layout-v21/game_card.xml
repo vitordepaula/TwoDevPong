@@ -4,9 +4,10 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:drawable/dialog_holo_light_frame"
     card_view:cardBackgroundColor="#E1FFC7"
     card_view:cardCornerRadius="6dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardElevation="7sp"
     android:layout_margin="10dp">
 
     <RelativeLayout

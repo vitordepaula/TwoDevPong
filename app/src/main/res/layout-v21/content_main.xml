@@ -16,7 +16,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="24sp"
         android:id="@+id/tvName" />
@@ -28,15 +27,13 @@
         android:text="@string/serve_game"
         android:padding="15sp"
         android:id="@+id/btn_serve"
-        android:background="@android:drawable/dialog_holo_light_frame"
+        android:stateListAnimator="@anim/button_anim_material"
         android:layout_below="@+id/tvName"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"/>
 
     <TextView android:text="@string/hello" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvName"
-        android:layout_toLeftOf="@+id/btn_serve"
         android:layout_toStartOf="@+id/btn_serve"
         android:id="@+id/textView" />
 
